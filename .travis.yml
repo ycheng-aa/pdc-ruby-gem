@@ -19,14 +19,16 @@ script:
   if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then
     bundle exec pronto run -f github_pr -c origin/${TRAVIS_BRANCH}
   fi
+-after_success:
+#-- >
+# -  [ "$TRAVIS_BRANCH" = "master" ] &&
+# -  [ "$TRAVIS_PULL_REQUEST" = "false" ] &&
+# -    make -C docs/ setup_gh_pages generate deploy
 
-after_success:
-- >
-  [ "$TRAVIS_BRANCH" = "master" ] &&
-  [ "$TRAVIS_PULL_REQUEST" = "false" ] &&
-    make deploy_doc
+# JUST FOR DEMO
+- make -C docs/ setup_gh_pages generate deploy
 env:
   global:
-  - GH_REPO="product-definition-center/pdc-ruby-gem"
-  - PULL_REQUEST_ID=${TRAVIS_PULL_REQUEST}
-  - secure: Mf6k7ZwdsOOzP4woIo9z3X8e8hYZUOitBYPVOBeWpXPY8rruet3DhRYAEMNqf8iH9YAVqssE4Q0j76PQrQ6WyX+TXnayl62VAGeRjwQt4rs3orDjN+lZSP1tMt8w5fN906XeV2pcbuahRU1cFEEJ6iWhTbvhvgugsmuo8dzoS5uLRtv+VopyZjJaOqvsk5wCPKMKQLAqCvYDf2ugCm2qI3+FdjQb24WaTMLmF+vVXQSGvOpXx8Z6gLZRk0/bZeBLxFLFJcAFnRdbC09YI8Jt5nmwg7Lc+mX19qGUmracsYz2KKTDg3XC2b4n4O63woQFdwwvj0LQIoLmc/6YoxIPuCDQ92oXVCDGHB9kTh3GPxHPVwWsveg8Auvj0cPMSOTZId46Jox8sOXlIxZD0xXHiq8XQ1WSYJm0LJheO9mZHV4DIHp0o0Zm7ii7cxkb2It0c2oACRpiyBmXPfGKwNoMgfAzPo4dbbmbqoRD6XxxzLxKNwhKOAtcBMs6j/dKlKyo12h79+yqlkcYmvOLp+Bz/NqRRN63j1h5wR2Irl95uLv2PN26k2sod+Kmk22IcmDJP80ha/IodcxmPIDTZKnqLd7bcaK3mHvZMQ1DsKeuktaqKvnK8fdaZHAhVSfUlu0yCi5PfiH28+HbdpSK6VHQhH7c9/YgwrS9sgcE0Kh1Mw0=
+  - GH_REPO="ycheng-aa/pdc-ruby-gem"
+  - PRONTO_PULL_REQUEST_ID=${TRAVIS_PULL_REQUEST}
+  - secure: iHgoCpvnHrUxQcCJJbQUlXt5VgjI2BZ7M1CMwAjKNukZ95mBKK0ABJA3j1IpLL4Eeypyq08/GUfJlq9d7sCF5VVgMXkhr0q0O/JDqa+gHX79/syU5kP91m9PXmpCW3myMP4szHydUoFoFAQc3zKlbDEtx359bPn3/wdOAGYJR8bkg5selsrdNJmCwXnCIAsWm3Pg53GnKDrTM9sIiqClaP60Pdp6OBPfdDDHLu5kSepFMut0eeXRXf65iifss1FqDxJdvbEiWLJtgXU5xdnbnhnh687rSCpxoX5gN5uc5L2DhYwrAnnHsT6aMtqi4wwxs4K56ilME0rwPD5k70I3h5Uj3ukMRK3IGxoblwi0FYKzLw+gLs2m2RExIicdo1o1Vc+DD2JbNtrLzFboX+oaeHowQpedD6BZsjt/KvO0huzOjfYlPNBde4nfddJ+w/dCRLnP3U7agEBm1hg/Erx0pCOFVutTDpMesPBM9AZzUcEj2jq/VFvKyPHbHvD1x1ZXnGWad15osMumYrEYUzbFy+f0fD9YiwsQMCxOeywelsmJNS0n8c8YkDy7t+JXxlMwGn6tF3bskS+qo4JMWvTHlVN7obnUJNB69IWFAAAA0klNcBtPQ3zgYgp9Kv9l/GBUBCzLI32XidZ4FGnAjAGDVOy4apqxCvXmOV5tkYoGwGU=
