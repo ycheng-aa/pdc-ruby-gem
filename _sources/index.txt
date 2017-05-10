@@ -13,6 +13,7 @@ Contents:
    :numbered:
 
    example
+   for_ffan_demo
 
 
 Indices and tables
