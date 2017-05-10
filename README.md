@@ -1,3 +1,4 @@
+[![Coverage Status](https://coveralls.io/repos/github/ycheng-aa/pdc-ruby-gem/badge.svg?branch=master)](https://coveralls.io/github/ycheng-aa/pdc-ruby-gem?branch=master)
 # PDC
 
 Ruby `PDC` library that maps `PDC` json api to ActiveRecord like objects.
